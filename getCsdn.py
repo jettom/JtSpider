@@ -7,7 +7,7 @@ import sys
 #功能：读取网页内容 
 class GetHtmlPage(): 
         #注意大小写
-        def __init__(self,strPage):
+        def __init__(self, strPage):
             self.strPapge = strPage
         #获取网页
         def GetPage(self):
@@ -26,22 +26,26 @@ class GetHtmlPage():
                         print 'HTTP Error:' + e.reason
                         return
                 return rePage
+
 #正则表达式，获取想要的内容
 class RePage():
 #正则表达式提取内容，返回链表
-    def GetReText(self,page,recode):
-        rePage = re.findall(recode,page,re.S)
+    def GetReText(self, page, recode):
+        rePage = re.findall(recode, page, re.S)
         return rePage
+
 #保存文本
 class SaveText():
-    def Save(self,text,tilte):
+    def Save(self, text, tilte):
         try:
             t="blog\\"+tilte+".html"
-            f = file(t,"a")
+            f = file(t, "a")
             f.write(text)
             f.close()
-        except IOError,e:
+        except IOError, e:
             print e.message
+
+
 if __name__ == "__main__":
     s = SaveText()
     #文件编码
@@ -53,18 +57,18 @@ if __name__ == "__main__":
     htmlPage = page.GetPage()
     #提取内容
     reServer = RePage()
-    reBlog = reServer.GetReText(htmlPage,r'<span class="link_title"><a href="(.+?)">.*?(\s.+?)</a></span>')   #获取网址链接和标题
+    reBlog = reServer.GetReText(htmlPage, r'<span class="link_title"><a href="(.+?)">.*?(\s.+?)</a></span>')   #获取网址链接和标题
     #再向下获取正文
     for ref in reBlog:
         pageHeard = "http://blog.csdn.net/"         #加链接头
         strPage = pageHeard+ref[0]
         tilte=ref[1].replace('<font color="red">[置顶]</font>', "")     #用替换的功能去除杂的英文
-        tilte=tilte.replace("\r\n","").lstrip().rstrip()
+        tilte=tilte.replace("\r\n", "").lstrip().rstrip()
         #获取正文
         htmlPage = GetHtmlPage(strPage)
         htmlPageData = htmlPage.GetPage()
-        reBlogText = reServer.GetReText(htmlPageData,'<div id="article_content" class="article_content">(.+?)</div>')
+        reBlogText = reServer.GetReText(htmlPageData, '<div id="article_content" class="article_content">(.+?)</div>')
     #保存文件
         for s1 in reBlogText:
-            s1='<meta charset="UTF-8">\n'+s1
-            s.Save(s1,tilte)
+            s1 = '<meta charset="UTF-8">\n'+s1
+            s.Save(s1, tilte)
