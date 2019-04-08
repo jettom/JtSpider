@@ -1,5 +1,9 @@
 import urllib2,csv,cookielib
 
+# from
+# https://www.nasdaq.com/screening/company-list.aspx
+# get   NASDAQ.csv NYSE.csv AMEX.csv
+
 #site = "http://xueqiu.com/S/AAPL/historical.csv"
 #site= "http://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getHistoricalData.jsp?symbol=JPASSOCIAT&fromDate=1-JAN-2012&toDate=1-AUG-2012&datePeriod=unselected&hiddDwnld=true"
 hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
