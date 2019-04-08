@@ -3,16 +3,16 @@
 
 from gevent import monkey; monkey.patch_all()
 import gevent
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 def run_task(urlP):
-    print 'Visit --> %s' % urlP
+    print('Visit --> %s' % urlP)
     try:
-        response = urllib2.urlopen(urlP)
+        response = urllib.request.urlopen(urlP)
         data = response.read()
-        print '%d bytes received from %s.' % (len(data), urlP)
-    except Exception, e:
-        print e
+        print('%d bytes received from %s.' % (len(data), urlP))
+    except Exception as e:
+        print(e)
 
 
 if __name__ == '__main__':
