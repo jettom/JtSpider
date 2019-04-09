@@ -16,7 +16,7 @@ def dealClient(sock, addr):
         time.sleep(1)
         if not data or data.decode('utf-8') == 'exit':
             break
-        print '-->>%s!' % data.decode('utf-8')
+        print('-->>%s!' % data.decode('utf-8'))
         sock.send(('Loop_Msg: %s!' % data.decode('utf-8')).encode('utf-8'))
     # 第五步：关闭套接字
     sock.close()
