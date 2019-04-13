@@ -110,3 +110,8 @@ venv.bak/
 data/AMEX.csv
 data/NASDAQ.csv
 data/NYSE.csv
+1.csv
+.idea/inspectionProfiles/Project_Default.xml
+.idea/encodings.xml
+.DS_Store
+1.csv
