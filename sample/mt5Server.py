@@ -21,7 +21,7 @@ class socketserver:
             self.cummdata += data.decode("utf-8")
             if not data:
                 break
-            self.conn.send(bytes(calcregr(self.cummdata), "utf-8"))
+            #self.conn.send(bytes(calcregr(self.cummdata), "utf-8"))
             return self.cummdata
 
     def __del__(self):

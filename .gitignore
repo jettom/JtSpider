@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+.idea/JtSpider.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+data/AMEX.csv
+data/NASDAQ.csv
+data/NYSE.csv
