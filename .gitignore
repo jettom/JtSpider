@@ -114,5 +114,4 @@ data/NYSE.csv
 .idea/inspectionProfiles/Project_Default.xml
 .idea/encodings.xml
 .DS_Store
-1.csv
-1.csv
+*.csv
